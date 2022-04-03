@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="col">
+      <h1 style="text-align: center">{{ title }}</h1>
+    </div>
+    <br />
+    <br />
+    <form class="form-group row" [formGroup]="formularioPaciente">
+      <div class="form-group col-md-3">
+        <label for="nombre">Nombre:</label>
+        <input
+          type="text"
+          name="nombre"
+          id="nombre"
+          placeholder="Ingresa tu nombre"
+          class="form-control"
+          formControlName="nombre"
+          [ngClass]="{
+            'error': formularioPaciente.controls['nombre'].touched && 
+            formularioPaciente.controls['nombre'].errors?.['required']
+          }"
+        />
+        
+        <div *ngIf="formularioPaciente.controls['nombre'].touched && formularioPaciente.controls['nombre'].errors?.['required']">
+          Debes ingresar un nombre.
+        </div>
+      </div>
+      <div class="form-group col-md-3">
+        <label for="edad">Edad:</label>
+        <input
+          type="text"
+          name="edad"
+          id="edad"
+          placeholder="Ingresa tu edad"
+          class="form-control"
+          formControlName="edad"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label for="ru">Rut:</label>
+        <input
+          type="text"
+          name="rut"
+          id="rut"
+          placeholder="Ingresa tu rut"
+          class="form-control"
+          formControlName="rut"
+        />
+      </div>
+      <div class="form-group col-md-3">
+        <label for="enfermedad_previa">Enfermedad previa:</label>
+        <select class="custom-select"
+        name="enfermedad_previa"
+        id="enfermedad_previa"
+        class="form-control"
+        formControlName="enfermedad_previa">
+          <option value="" disabled selected>Elija una opcion</option>
+          <option value="true">Si</option>
+          <option value="false">No</option>
+        </select>
+      </div>
+      <div class="col">
+        <button style="margin-top: 30px;" type="submit" class="btn btn-primary" (click)="agregarPacienteNuevo()">Guardar Paciente</button>
+      </div>
+    </form>
+  </div>
+
+
+<app-lista-pacientes>
+
+</app-lista-pacientes>

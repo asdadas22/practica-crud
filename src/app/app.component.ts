@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Paciente } from './models/pacientes.models';
+import { PacientesService } from './pacientes.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'practica-crud';
+
+  title = 'Lista de pacientes';
+
+  constructor () {
+  }
 }

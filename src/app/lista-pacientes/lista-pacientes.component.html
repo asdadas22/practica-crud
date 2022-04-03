@@ -1,0 +1,29 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th>Rut</th>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Enfermedad Previa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let pacientes of listaPaciente; let i = index">
+      <td>{{pacientes.rut}}</td>
+      <td>{{pacientes.nombre}}</td>
+      <td>{{pacientes.edad}}</td>
+      <td>{{pacientes.enfermedad_previa}}</td>
+      <td>
+        <button style="margin-top: 30px;" type="submit" 
+        class="btn btn-primary" 
+        [routerLink]="['/editar', pacientes.rut]" 
+        [queryParams]="{accion:'1'}">Actualizar Paciente</button>
+      </td>
+      <td>
+        <button style="margin-top: 30px;" type="submit" class="btn btn-primary" 
+        [routerLink]="['/editar', pacientes.rut]" 
+        [queryParams]="{accion:'0'}">Eliminar Paciente</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
