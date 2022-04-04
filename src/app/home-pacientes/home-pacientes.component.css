@@ -1,0 +1,12 @@
+.error {
+    border: 2px solid red;
+}
+
+.valido {
+    border: 2px solid greenyellow;
+}
+
+.mensaje-error {
+    color: red;
+    font-weight: 600;
+}
